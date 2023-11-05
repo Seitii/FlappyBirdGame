@@ -1,0 +1,81 @@
+# [NEAT]
+fitness_criterion     = max 
+fitness_threshold     = 1000
+pop_size              = 100
+reset_on_extinction   = False
+
+
+[DefaultGenome] -> Parâmetros do no 
+# node activation options -> Analisando o No
+activation_default      = tanh 
+activation_mutate_rate  = 0.0
+activation_options      = tanh   → função que vai ser usada no output
+
+# node aggregation options     → Função de AGREGAÇÃO(SOMA)
+aggregation_default     = sum 
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options    → Configuração do BIAS( VALOR ALEATÓRIO) 
+bias_init_mean          = 0.0   → MEDIA 
+bias_init_stdev         = 1.0    → DESVIO PADRAO 
+bias_max_value          = 30.0     → VALOR MAXIMO
+bias_min_value          = -30.0     → VALOR MINIMO
+bias_mutate_power       = 0.5  → PODER DE MUTAÇÃO
+bias_mutate_rate        = 0.7   -→  TAXA DE MUTAÇÃO
+bias_replace_rate       = 0.1   →    POSSIBILIDADE DE SUBSTITUIÇÃO 
+
+# genome compatibility options     –→ Parâmetros de separação em especie 
+compatibility_disjoint_coefficient = 1.0  
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates    —----→ Probabilidade de excluir alguma linha de valor
+conn_add_prob           = 0.5
+conn_delete_prob        = 0.5
+
+# connection enable options        —------→  Probabilidade de criar alguma linha de calculo/ MUTAÇÃO
+
+enabled_default         = True
+enabled_mutate_rate     = 0.01
+
+feed_forward            = True    —---------→ Ordem q a rede neural é alimentada
+initial_connection      = full    —---------→  
+
+# node add/remove rates
+node_add_prob           = 0.2
+node_delete_prob        = 0.2
+
+# network parameters          —---------→ Parâmetros da Rede neural 
+num_hidden              = 0
+num_inputs              = 3
+num_outputs             = 1
+
+# node response options     —---------→ Número q o NO multiplica.
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options   
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]              —---------→   Configuração da espécie dentro da população 
+compatibility_threshold = 3.0
+
+[DefaultStagnation]                —---------→   Verifica se a especie esta evoluindo ou nao.
+species_fitness_func = max
+max_stagnation       = 20
+species_elitism      = 2
+
+[DefaultReproduction]                   —---------→   Percentual q o passaro pode se reproduzir 
+elitism            = 2
+survival_threshold = 0.2
